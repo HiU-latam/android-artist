@@ -107,13 +107,24 @@
         android:layout_marginStart="90dp"
         android:id="@+id/txt_password"/>
 
+    <com.an.customfontview.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewLoginWith"
+        android:text="@string/login_with"
+        style="@style/smallFont.white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_password"
+        android:layout_marginTop="@dimen/regular_padding"/>
+
     <com.an.customfontview.CustomButton
         android:id="@+id/sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_in"
-        app:layout_constraintTop_toBottomOf="@+id/txt_password"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutFBINTW"
+        android:layout_marginTop="@dimen/very_large_padding"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
@@ -122,15 +133,17 @@
     </com.an.customfontview.CustomButton>
 
     <LinearLayout
+        android:id="@+id/linearLayoutFBINTW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoginWith"
         android:layout_marginBottom="61dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/regular_padding">
         <Button
             android:id="@+id/btn_fb_login"
             android:layout_width="40dp"
@@ -154,6 +167,38 @@
             android:background="@drawable/twitter_button"
             android:layout_marginStart="10dp" />
     </LinearLayout>
+
+    <View
+        android:layout_width="@dimen/so_small_padding"
+        android:layout_height="@dimen/so_small_padding"
+        android:id="@+id/viewCenterPosition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginBottom="@dimen/regular_padding"></View>
+    <com.an.customfontview.CustomTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewNewHere"
+        android:text="@string/new_here"
+        style="@style/smallFont.white"
+        android:gravity="end"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/viewCenterPosition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/regular_padding"/>
+    <com.an.customfontview.CustomTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewSignUp"
+        android:text="@string/sign_up"
+        style="@style/smallFont.colorPrimary"
+        android:gravity="start"
+        app:layout_constraintLeft_toRightOf="@+id/viewCenterPosition"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/regular_padding"/>
 
 
 

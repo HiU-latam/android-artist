@@ -10,6 +10,9 @@
     <string name="facebook_app_id">1931307483801819</string>
     <string name="fb_login_protocol_scheme">fb1931307483801819</string>
     <string name="title_activity_insta">InstaActivity</string>
+    <string name="login_with">Login with</string>
+    <string name="new_here">New here?</string>
+    <string name="sign_up">Sign Up</string>
 
     <!-- WalkThrough -->
     <string name="first_title">Select your favorite person</string>
