@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">HiUArtist</string>
+
+    <!-- Loading / Splash Screen-->
+    <string name="lema">Surprise and Change the world</string>
+
+    <!-- Sign in -->
+    <string name="sign_in">Sign In</string>
+    <string name="instagram_app_id">07b61414512a45dcb8e86e087431f2a2</string>
+    <string name="facebook_app_id">1931307483801819</string>
+    <string name="fb_login_protocol_scheme">fb1931307483801819</string>
+    <string name="title_activity_insta">InstaActivity</string>
+
+    <!-- WalkThrough -->
+    <string name="first_title">Select your favorite person</string>
+    <string name="first_sub">sportsman, actor, singer, writer ...</string>
+    <string name="second_title">Fill out the form</string>
+    <string name="second_sub">Everything with the information of the lucky one</string>
+    <string name="third_title">Choose a charity foundation</string>
+    <string name="third_sub">Make a donation, help the artist and get one of the best gifts you ever had</string>
 </resources>

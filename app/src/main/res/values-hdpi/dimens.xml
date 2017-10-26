@@ -1,0 +1,41 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    <dimen name="nav_header_vertical_spacing">10dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">10dp</dimen>
+
+    <dimen name="so_small_font">6sp</dimen>
+    <dimen name="very_small_font">10sp</dimen>
+    <dimen name="small_font">14sp</dimen>
+    <dimen name="regular_font">18sp</dimen>
+    <dimen name="large_font">22sp</dimen>
+    <dimen name="very_large_font">26sp</dimen>
+
+    <dimen name="so_small_padding">2dp</dimen>
+    <dimen name="very_small_padding">4dp</dimen>
+    <dimen name="small_padding">6dp</dimen>
+    <dimen name="regular_padding">10dp</dimen>
+    <dimen name="large_padding">16dp</dimen>
+    <dimen name="very_large_padding">26dp</dimen>
+    <dimen name="extra_large_padding">42dp</dimen>
+    <dimen name="double_extra_large_padding">68dp</dimen>
+    <dimen name="more_extra_large_padding">110dp</dimen>
+
+    <dimen name="app_bar_height">68dp</dimen>
+
+    <dimen name="charity_content_square_difference_one">25dp</dimen>
+    <dimen name="charity_content_square_difference_two">50dp</dimen>
+    <dimen name="charity_content_square_difference_three">75dp</dimen>
+    <dimen name="charity_content_square_one">150dp</dimen>
+    <dimen name="charity_content_square_two">175dp</dimen>
+    <dimen name="charity_content_square_three">200dp</dimen>
+    <dimen name="charity_content_square_four">225dp</dimen>
+    <dimen name="charity_content_square_five">250dp</dimen>
+    <dimen name="charity_content_square_six">275dp</dimen>
+    <dimen name="charity_content_square_seven">300dp</dimen>
+    <dimen name="charity_content_square_eight">325dp</dimen>
+
+
+</resources>
