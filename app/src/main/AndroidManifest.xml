@@ -57,7 +57,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".TwitterActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
     </application>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/regular_padding"
+    android:paddingBottom="@dimen/regular_padding">
+
+    <ImageView
+        android:id="@+id/imageViewCharity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shape_square_colorprimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/large_padding"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutCharityItemContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewCharity"
+        app:layout_constraintRight_toLeftOf="@+id/customTextViewReply"
+        android:layout_marginLeft="@dimen/regular_padding"
+        android:layout_marginRight="@dimen/regular_padding">
+        <com.an.customfontview.CustomTextView
+            android:id="@+id/customTextViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mary Snow"
+            android:drawableRight="@drawable/down_arrow"/>
+        <com.an.customfontview.CustomTextView
+            android:id="@+id/customTextViewTimeAndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="06:10 am - December 24, 2019"
+            style="@style/smallFont.gray"
+            app:layout_constraintTop_toBottomOf="@+id/customTextViewName"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reply"
+        android:background="@drawable/shape_reply_bg"
+        android:gravity="center"
+        style="@style/smallFont.white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/large_padding"/>
+
+</android.support.constraint.ConstraintLayout>

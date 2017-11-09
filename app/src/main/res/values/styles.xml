@@ -10,6 +10,8 @@
         <item name="android:textViewStyle">@style/smallFont</item>
 
         <item name="android:buttonStyle">@style/buttonSmall</item>
+        
+        <item name="android:spinnerItemStyle">@style/spinnerItem</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -58,6 +60,10 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="smallFont.gray" parent="@style/smallFont">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
     <style name="smallFont.colorPrimary.shadow" parent="@style/smallFont.colorPrimary">
         <item name="android:shadowColor">@color/colorPrimary</item>
         <item name="android:shadowDx">1</item>
@@ -71,6 +77,14 @@
 
     <style name="regularFont.white" parent="@style/regularFont">
         <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="regularFont.black" parent="@style/regularFont">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="regularFont.colorPrimary" parent="@style/regularFont">
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
     <style name="regularFont.Bold" parent="@style/regularFont">
@@ -92,6 +106,10 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="largeFont.black" parent="@style/largeFont">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <!-- Button -->
     <style name="buttonSmall" parent="android:Widget.Button">
         <item name="android:textColor">@color/white</item>
@@ -101,6 +119,17 @@
         <item name="android:paddingRight">@dimen/double_extra_large_padding</item>
         <item name="android:paddingTop">@dimen/regular_padding</item>
         <item name="android:paddingBottom">@dimen/regular_padding</item>
+    </style>
+
+    <!--Spinner Style-->
+    <style name="spinnerItem">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">@dimen/large_padding</item>
+        <item name="android:paddingRight">@dimen/large_padding</item>
+        <item name="android:paddingTop">@dimen/regular_padding</item>
+        <item name="android:paddingBottom">@dimen/regular_padding</item>
+        <item name="android:textSize">@dimen/regular_font</item>
+        <item name="android:gravity">left|center_vertical</item>
     </style>
 
 

@@ -21,4 +21,25 @@
     <string name="second_sub">Everything with the information of the lucky one</string>
     <string name="third_title">Choose a charity foundation</string>
     <string name="third_sub">Make a donation, help the artist and get one of the best gifts you ever had</string>
+
+    <!-- Requests -->
+    <string name="requests">Requests</string>
+    <string name="date">Date</string>
+    <string name="country">Country</string>
+    <string name="name">Name</string>
+    <string name="most_recents">Most recents</string>
+    <string name="january">January</string>
+    <string name="february">February</string>
+    <string name="march">March</string>
+    <string name="april">April</string>
+    <string name="may">May</string>
+    <string name="june">June</string>
+    <string name="july">July</string>
+    <string name="august">August</string>
+    <string name="september">September</string>
+    <string name="october">October</string>
+    <string name="nobember">November</string>
+    <string name="december">December</string>
+    <string name="by_name">By name</string>
+    <string name="reply">Reply</string>
 </resources>
