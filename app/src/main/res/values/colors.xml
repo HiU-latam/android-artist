@@ -6,4 +6,5 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#28333F</color>
     <color name="gray">#dce4e9</color>
+    <color name="video_app_bar">#dce4e9</color>
 </resources>

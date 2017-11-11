@@ -1,13 +1,17 @@
 package com.hiulatam.hiu.hiuartist;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Spinner spinnerMonths;
     private RecyclerView recyclerViewRequests;
+    private ImageView imageViewPlus;
+    private ImageButton imageButtonNavigationView;
+    private DrawerLayout drawerLayout;;
 
     private ArrayAdapter monthAdapter;
     private CharityItemAdapter charityItemAdapter;
@@ -68,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
         spinnerMonths = (Spinner) findViewById(R.id.spinnerMonth);
 
         recyclerViewRequests = (RecyclerView) findViewById(R.id.recyclerViewRequests);
+
+        imageViewPlus = (ImageView) findViewById(R.id.imageViewPlus);
+
+        imageButtonNavigationView = (ImageButton) findViewById(R.id.image_button_navigation_view);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
     }
 
     /**
@@ -92,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
      * Created on:  10/28/17
      */
     private void addListeners(){
-
+        imageButtonNavigationView.setOnClickListener(onClickListener);
     }
 
     private void facebookprofilefill() {
@@ -234,4 +247,24 @@ public class MainActivity extends AppCompatActivity {
         }
         recyclerViewRequests.setAdapter(charityItemAdapter);
     }
+
+    private void getVideoActivity(){
+        Intent intent = new Intent();
+        intent.setClass(this, VideoActivity.class);
+        startActivity(intent);
+    }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.imageViewPlus:
+                    getVideoActivity();
+                    break;
+                case R.id.image_button_navigation_view:
+                    drawerLayout.openDrawer(Gravity.LEFT);
+                    break;
+            }
+        }
+    };
 }

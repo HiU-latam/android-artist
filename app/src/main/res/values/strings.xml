@@ -42,4 +42,7 @@
     <string name="december">December</string>
     <string name="by_name">By name</string>
     <string name="reply">Reply</string>
+    
+    <!--Video-->
+    <string name="record_video">Record Video</string>
 </resources>
