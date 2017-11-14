@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null">
+
+    <View
+        android:id="@+id/viewVideoConfirmation"
+        android:layout_width="@dimen/dialog_width"
+        android:layout_height="@dimen/dialog_height"
+        android:background="@drawable/video_save_confirmation_bg"></View>
+
+
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_video"
+        style="@style/regularFont.white"
+        android:drawableRight="@drawable/ic_down_arrow_white"
+        android:paddingRight="@dimen/regular_padding"
+        android:drawablePadding="@dimen/regular_padding"
+        app:layout_constraintLeft_toLeftOf="@+id/viewVideoConfirmation"
+        app:layout_constraintRight_toRightOf="@+id/viewVideoConfirmation"
+        app:layout_constraintTop_toTopOf="@+id/viewVideoConfirmation"
+        android:layout_marginTop="@dimen/regular_padding"/>
+
+    <com.an.customfontview.CustomButton
+        android:id="@+id/customButtonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        style="@style/buttonRegular.border"
+        app:layout_constraintTop_toBottomOf="@+id/customTextViewTitle"
+        app:layout_constraintLeft_toLeftOf="@+id/viewVideoConfirmation"
+        app:layout_constraintRight_toRightOf="@+id/viewVideoConfirmation"
+        app:layout_constraintHorizontal_bias="0.1"
+        android:layout_marginTop="@dimen/regular_padding"/>
+
+    <com.an.customfontview.CustomButton
+        android:id="@+id/customButtonOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        style="@style/buttonRegular.border"
+        app:layout_constraintTop_toBottomOf="@+id/customTextViewTitle"
+        app:layout_constraintLeft_toLeftOf="@+id/viewVideoConfirmation"
+        app:layout_constraintRight_toRightOf="@+id/viewVideoConfirmation"
+        app:layout_constraintHorizontal_bias="0.9"
+        android:layout_marginTop="@dimen/regular_padding"/>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_confirmation_note"
+        style="@style/smallFont.white"
+        app:layout_constraintLeft_toLeftOf="@+id/viewVideoConfirmation"
+        app:layout_constraintRight_toRightOf="@+id/viewVideoConfirmation"
+        app:layout_constraintTop_toBottomOf="@+id/customButtonOK"
+        android:layout_marginTop="@dimen/regular_padding"/>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

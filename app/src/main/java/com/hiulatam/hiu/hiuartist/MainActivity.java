@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void addListeners(){
         imageButtonNavigationView.setOnClickListener(onClickListener);
+        imageViewPlus.setOnClickListener(onClickListener);
     }
 
     private void facebookprofilefill() {

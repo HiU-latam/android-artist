@@ -45,4 +45,12 @@
     
     <!--Video-->
     <string name="record_video">Record Video</string>
+    <string name="for_mary_sknow">FOR \nMARY SKNOW</string>
+    <string name="size">Size 43</string>
+    <string name="qty">Qty 2</string>
+    <string name="color">Color  [img src=color_shade/]</string>
+    <string name="save_video">Save Video</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="save_confirmation_note">Please! send a HiU for her birthday</string>
 </resources>

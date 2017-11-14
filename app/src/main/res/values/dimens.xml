@@ -12,6 +12,9 @@
     <dimen name="regular_font">18sp</dimen>
     <dimen name="large_font">22sp</dimen>
     <dimen name="very_large_font">26sp</dimen>
+    <dimen name="extra_large_font">30sp</dimen>
+    <dimen name="double_extra_large_font">34sp</dimen>
+    <dimen name="thrice_extra_large_font">66sp</dimen>
 
     <dimen name="so_small_padding">2dp</dimen>
     <dimen name="very_small_padding">4dp</dimen>
@@ -22,6 +25,8 @@
     <dimen name="extra_large_padding">42dp</dimen>
     <dimen name="double_extra_large_padding">68dp</dimen>
     <dimen name="more_extra_large_padding">110dp</dimen>
+    <dimen name="so_more_extra_large_padding">178dp</dimen>
+    <dimen name="huge_extra_large_padding">288dp</dimen>
 
     <dimen name="app_bar_height">68dp</dimen>
 
@@ -43,6 +48,47 @@
     <dimen name="charity_content_square_six">275dp</dimen>
     <dimen name="charity_content_square_seven">300dp</dimen>
     <dimen name="charity_content_square_eight">325dp</dimen>
+
+    <dimen name="video_frame">265dp</dimen>
+
+    <dimen name="video_bottom_bar_height">160dp</dimen>
+
+    <dimen name="video_bottom_content_height">68dp</dimen>
+
+
+    <dimen name="video_capture_border_width">10dp</dimen>
+    <dimen name="video_capture_width">68dp</dimen>
+    <dimen name="video_capture_height">68dp</dimen>
+    <dimen name="video_capture_border_width_one">12dp</dimen>
+    <dimen name="video_capture_width_one">70dp</dimen>
+    <dimen name="video_capture_height_one">70dp</dimen>
+    <dimen name="video_capture_border_width_two">13dp</dimen>
+    <dimen name="video_capture_width_two">71dp</dimen>
+    <dimen name="video_capture_height_two">71dp</dimen>
+    <dimen name="video_capture_border_width_three">14dp</dimen>
+    <dimen name="video_capture_width_three">72dp</dimen>
+    <dimen name="video_capture_height_three">72dp</dimen>
+    <dimen name="video_capture_border_width_four">15dp</dimen>
+    <dimen name="video_capture_width_four">73dp</dimen>
+    <dimen name="video_capture_height_four">73dp</dimen>
+    <dimen name="video_capture_border_width_five">16dp</dimen>
+    <dimen name="video_capture_width_five">74dp</dimen>
+    <dimen name="video_capture_height_five">74dp</dimen>
+    <dimen name="video_capture_border_width_six">18dp</dimen>
+    <dimen name="video_capture_width_six">76dp</dimen>
+    <dimen name="video_capture_height_six">76dp</dimen>
+    <dimen name="video_capture_border_width_seven">20dp</dimen>
+
+
+    <dimen name="video_save_confirmation_dialog_height">178dp</dimen>
+    <dimen name="video_save_confirmation_dialog_height_one">179dp</dimen>
+    <dimen name="video_save_confirmation_dialog_height_two">180dp</dimen>
+
+    <dimen name="button_width">150dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+
+    <dimen name="dialog_width">400dp</dimen>
+    <dimen name="dialog_height">120dp</dimen>
 
 
 </resources>
