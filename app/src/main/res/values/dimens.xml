@@ -90,5 +90,16 @@
     <dimen name="dialog_width">400dp</dimen>
     <dimen name="dialog_height">120dp</dimen>
 
+    <dimen name="menu_mask_width_height">100dp</dimen>
+
+    <dimen name="settings_group_item_height">90dp</dimen>
+    <dimen name="settings_expanded_item">57dp</dimen>
+    <dimen name="settings_expanded_dotted_height">60dp</dimen>
+
+    <dimen name="settings_vertical_separator_height">64dp</dimen>
+
+    <dimen name="recent_requests_width">288dp</dimen>
+    <dimen name="recent_requests_left">100dp</dimen>
+
 
 </resources>

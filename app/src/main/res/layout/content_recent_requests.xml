@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hiulatam.hiu.hiuartist.SettingsActivity"
+    tools:showIn="@layout/content_settings">
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="@dimen/recent_requests_width"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"></View>
+    <com.an.customfontview.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/customTextViewRecentRequests"
+        android:text="@string/recent_request"
+        android:layout_marginLeft="@dimen/recent_requests_left"
+        style="@style/largeFont.black"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"/>
+
+    <com.an.customfontview.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/customTextViewProfileRequest"
+        android:text="Jorge Perez"
+        style="@style/regularFont.black"
+        android:drawableRight="@drawable/down_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/customTextViewRecentRequests"
+        app:layout_constraintLeft_toLeftOf="@+id/customTextViewRecentRequests"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/customButtonLogout"
+        android:src="@drawable/ic_menu_objeto_inteligente_vectorial_1"
+        android:layout_marginRight="@dimen/large_padding"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <com.an.customfontview.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/customTextViewLogout"
+        android:text="@string/logout"
+        style="@style/smallFont.gray"
+        app:layout_constraintRight_toLeftOf="@+id/customButtonLogout"
+        app:layout_constraintBottom_toBottomOf="@+id/customButtonLogout"/>
+
+
+</android.support.constraint.ConstraintLayout>

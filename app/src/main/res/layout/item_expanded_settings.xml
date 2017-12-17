@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/settings_vertical_separator_height"
+    android:background="@color/settings_expanded_bg">
+
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/dotted"
+        android:layout_marginLeft="@dimen/settings_expanded_item"></View>
+
+    <ImageView
+        android:id="@+id/imageViewLine"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/menu_line"
+        android:layout_marginLeft="@dimen/settings_expanded_item"
+        android:visibility="gone"/>
+
+    <RadioButton
+        android:id="@+id/radioButtonOptionOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/extra_large_padding"
+        android:layout_centerVertical="true"/>
+
+
+</RelativeLayout>

@@ -12,6 +12,8 @@
         <item name="android:buttonStyle">@style/buttonSmall</item>
         
         <item name="android:spinnerItemStyle">@style/spinnerItem</item>
+
+        <item name="android:radioButtonStyle">@style/radioButton</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -46,6 +48,10 @@
 
     <style name="verySmallFont.colorPrimary" parent="@style/verySmallFont">
         <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="verySmallFont.gray" parent="@style/verySmallFont">
+        <item name="android:textColor">@color/gray</item>
     </style>
 
     <style name="smallFont" parent="android:Widget.TextView">
@@ -110,6 +116,10 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="largeFont.colorPrimary" parent="@style/largeFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
     <style name="thrice_extra_large_font" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/thrice_extra_large_font</item>
     </style>
@@ -146,6 +156,15 @@
         <item name="android:paddingBottom">@dimen/regular_padding</item>
         <item name="android:textSize">@dimen/regular_font</item>
         <item name="android:gravity">left|center_vertical</item>
+    </style>
+    
+    <!--Radio Button-->
+    <style name="radioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/selector_radio_button</item>
+        <item name="android:drawablePadding">@dimen/regular_padding</item>
+        <item name="android:paddingLeft">@dimen/regular_padding</item>
+        <item name="android:textSize">@dimen/large_font</item>
+        <item name="android:textColor">@drawable/selector_settings_expanded_text</item>
     </style>
 
 

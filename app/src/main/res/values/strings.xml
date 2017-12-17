@@ -53,4 +53,21 @@
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
     <string name="save_confirmation_note">Please! send a HiU for her birthday</string>
+    <string name="profile_name">Leonardo Test</string>
+    <string name="profile">Profile</string>
+    <string name="edit">Edit</string>
+    <string name="search_settings">Start searching in settings...</string>
+    
+    <!--Settings-->
+    <string name="number_requests_allowed">Number request allowed</string>
+    <string name="number_requests_allowed_option_one">0 - 10</string>
+    <string name="number_requests_allowed_option_two">10 - 50</string>
+    <string name="number_requests_allowed_option_three">+50</string>
+    <string name="my_charity_preferences">My charity Preference</string>
+    <string name="notification">Notification</string>
+    <string name="value_min_request">Value min request</string>
+    <string name="balance">Balance</string>
+    <string name="more_options">More options</string>
+    <string name="recent_request">Recent request</string>
+    <string name="logout">Logout</string>
 </resources>

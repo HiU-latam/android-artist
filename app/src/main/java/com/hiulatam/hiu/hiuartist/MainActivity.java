@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinnerMonths;
     private RecyclerView recyclerViewRequests;
     private ImageView imageViewPlus;
-    private ImageButton imageButtonNavigationView;
+    private ImageButton imageButtonNavigationView, imageButtonSettings;
     private DrawerLayout drawerLayout;;
 
     private ArrayAdapter monthAdapter;
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewPlus = (ImageView) findViewById(R.id.imageViewPlus);
 
         imageButtonNavigationView = (ImageButton) findViewById(R.id.image_button_navigation_view);
+        imageButtonSettings = (ImageButton) findViewById(R.id.image_button_settings);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
     }
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
     private void addListeners(){
         imageButtonNavigationView.setOnClickListener(onClickListener);
         imageViewPlus.setOnClickListener(onClickListener);
+        imageButtonSettings.setOnClickListener(onClickListener);
     }
 
     private void facebookprofilefill() {
@@ -255,6 +257,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Created by:  Shiny Solutions
+     * Created on:  11/21/17
+     */
+    private void openSettingsActivity(){
+        Intent intent = new Intent();
+        intent.setClass(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Created by:  Shiny Solutions
+     * Created on:  11/21/17
+     */
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -264,6 +280,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.image_button_navigation_view:
                     drawerLayout.openDrawer(Gravity.LEFT);
+                    break;
+                case R.id.image_button_settings:
+                    openSettingsActivity();
                     break;
             }
         }

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hiulatam.hiu.hiuartist.SettingsActivity"
+    tools:showIn="@layout/activity_settings">
+
+    <ImageView
+        android:id="@+id/imageViewMenuMask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_mask"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/very_large_padding"
+        android:layout_marginTop="@dimen/extra_large_padding"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutProfileDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewMenuMask"
+        app:layout_constraintTop_toTopOf="@+id/imageViewMenuMask"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewMenuMask"
+        android:layout_marginLeft="@dimen/large_padding">
+        <com.an.customfontview.CustomTextView
+            android:id="@+id/customTextViewProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/largeFont.black"
+            android:text="@string/profile_name"/>
+        <com.an.customfontview.CustomTextView
+            android:id="@+id/customTextViewProfileDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallFont.colorPrimary"
+            android:text="@string/profile"/>
+        <com.an.customfontview.CustomTextView
+            android:id="@+id/customTextViewEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/verySmallFont.gray"
+            android:text="@string/edit"/>
+
+    </LinearLayout>
+
+    <com.an.customfontview.CustomEditText
+        android:id="@+id/customEditTextSearchSettings"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/extra_large_padding"
+        android:background="@drawable/menu_search_settings_bg"
+        android:hint="@string/search_settings"
+        android:paddingLeft="@dimen/regular_padding"
+        android:paddingRight="@dimen/regular_padding"
+        android:drawablePadding="@dimen/regular_padding"
+        android:drawableRight="@drawable/icon_search"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMenuMask"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/large_padding"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewSettings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/customEditTextSearchSettings"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutRecentRequests"
+        android:layout_marginTop="@dimen/large_padding">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_group_item_height"
+        android:id="@+id/frameLayoutRecentRequests"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <include
+            layout="@layout/content_recent_requests"/>
+    </FrameLayout>
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
