@@ -57,6 +57,8 @@
     <string name="profile">Profile</string>
     <string name="edit">Edit</string>
     <string name="search_settings">Start searching in settings...</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
     
     <!--Settings-->
     <string name="number_requests_allowed">Number request allowed</string>

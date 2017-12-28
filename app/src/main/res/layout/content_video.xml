@@ -8,12 +8,10 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.hiulatam.hiu.hiuartist.VideoActivity"
     tools:showIn="@layout/activity_video">
-    <ImageView
+    <com.hiulatam.hiu.hiuartist.customclass.AutoFitTextureView
         android:id="@+id/imageViewVideo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/history_andres_cepeda2"
-        android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
