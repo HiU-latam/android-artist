@@ -13,6 +13,8 @@ public class CharityItemModal implements Parcelable {
     private String name;
     private String time;
     private String date;
+    private String profilePicture;
+    private String country;
 
     public CharityItemModal(){
 
@@ -22,6 +24,8 @@ public class CharityItemModal implements Parcelable {
         name = in.readString();
         time = in.readString();
         date = in.readString();
+        profilePicture = in.readString();
+        country = in.readString();
     }
 
     @Override
@@ -29,6 +33,8 @@ public class CharityItemModal implements Parcelable {
         dest.writeString(name);
         dest.writeString(time);
         dest.writeString(date);
+        dest.writeString(profilePicture);
+        dest.writeString(country);
     }
 
     @Override
@@ -70,5 +76,21 @@ public class CharityItemModal implements Parcelable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

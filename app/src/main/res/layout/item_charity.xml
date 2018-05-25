@@ -8,13 +8,14 @@
 
     <ImageView
         android:id="@+id/imageViewCharity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/double_extra_large_padding"
+        android:layout_height="@dimen/double_extra_large_padding"
         android:src="@drawable/shape_square_colorprimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="@dimen/large_padding"/>
+        android:layout_marginLeft="@dimen/large_padding"
+        android:background="@drawable/shape_square_colorprimary"/>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayoutCharityItemContent"

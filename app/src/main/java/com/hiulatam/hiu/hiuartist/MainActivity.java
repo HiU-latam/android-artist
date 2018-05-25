@@ -2,6 +2,7 @@ package com.hiulatam.hiu.hiuartist;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,14 +17,22 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.an.customfontview.CustomTextView;
 import com.hiulatam.hiu.hiuartist.adapter.CharityItemAdapter;
+import com.hiulatam.hiu.hiuartist.common.Config;
 import com.hiulatam.hiu.hiuartist.customclass.DividerItemDecoration;
 import com.hiulatam.hiu.hiuartist.modal.CharityItemModal;
 import com.hiulatam.hiu.hiuartist.utils.circleTransform;
 import com.hiulatam.hiu.hiuartist.utils.profileUser;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewRequests;
     private ImageView imageViewPlus;
     private ImageButton imageButtonNavigationView, imageButtonSettings;
-    private DrawerLayout drawerLayout;;
+    private DrawerLayout drawerLayout;
+    private CustomTextView customTextViewByName, customTextViewCount;
+    private TabLayout tab_layout_celebrity;
 
     private ArrayAdapter monthAdapter;
     private CharityItemAdapter charityItemAdapter;
@@ -82,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         imageButtonSettings = (ImageButton) findViewById(R.id.image_button_settings);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        customTextViewByName = (CustomTextView) findViewById(R.id.customTextViewByName);
+        customTextViewCount = (CustomTextView) findViewById(R.id.customTextViewCount);
+
+        tab_layout_celebrity = (TabLayout) findViewById(R.id.tab_layout_celebrity);
     }
 
     /**
@@ -99,6 +115,11 @@ public class MainActivity extends AppCompatActivity {
 
         setCharityItemAdapter();
 
+        customTextViewByName.setText(String.format("By %s", tab_layout_celebrity.getTabAt(tab_layout_celebrity.getSelectedTabPosition()).getText()));
+
+        if (charityItemAdapter != null)
+            customTextViewCount.setText(String.valueOf(charityItemAdapter.getItemCount()));
+
     }
 
     /**
@@ -109,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         imageButtonNavigationView.setOnClickListener(onClickListener);
         imageViewPlus.setOnClickListener(onClickListener);
         imageButtonSettings.setOnClickListener(onClickListener);
+        tab_layout_celebrity.addOnTabSelectedListener(onTabSelectedListener);
     }
 
     private void facebookprofilefill() {
@@ -177,64 +199,127 @@ public class MainActivity extends AppCompatActivity {
     private List<CharityItemModal> setCharityItemModalList(){
         List<CharityItemModal> charityItemModalList = new ArrayList<CharityItemModal>();
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm a");
+        Calendar c = Calendar.getInstance();
+        Date currentDate = c.getTime();
+        Calendar cTime = Calendar.getInstance();
+        Date currentTime = cTime.getTime();
+
         CharityItemModal charityItemModal = new CharityItemModal();
         charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("mary_snow");
+        charityItemModal.setCountry("Virginia");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -1);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -1);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Amy Adams");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("amy_adams");
+        charityItemModal.setCountry("California");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -3);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -3);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Angelina Jolie");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("angelina_jolie");
+        charityItemModal.setCountry("Cambodia");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -5);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -5);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Charlize Theron");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("charlize_theron");
+        charityItemModal.setCountry("California");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -7);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -7);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Emma Stone");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("emma_stone");
+        charityItemModal.setCountry("Arizona");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -11);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -13);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Jennifer Lawrence");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("jennifer_lawrence");
+        charityItemModal.setCountry("California");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -13);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -15);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
         charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("mary_snow");
+        charityItemModal.setCountry("Virginia");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -17);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -17);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Natalie Portman");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("natalie_portman");
+        charityItemModal.setCountry("Danish");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -21);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -21);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
-        charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setName("Scarlett Johansson");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("scarlett_johansson");
+        charityItemModal.setCountry("Danish");
         charityItemModalList.add(charityItemModal);
 
+        c.set(Calendar.DAY_OF_MONTH, -25);
+        currentDate = c.getTime();
+        cTime.set(Calendar.HOUR_OF_DAY, -23);
+        currentTime = cTime.getTime();
         charityItemModal = new CharityItemModal();
         charityItemModal.setName("Mary Snow");
-        charityItemModal.setTime("06:10 am");
-        charityItemModal.setDate("December 24, 2019");
+        charityItemModal.setTime(simpleTimeFormat.format(currentTime));
+        charityItemModal.setDate(simpleDateFormat.format(currentDate));
+        charityItemModal.setProfilePicture("mary_snow");
+        charityItemModal.setCountry("Virginia");
         charityItemModalList.add(charityItemModal);
 
         return charityItemModalList;
@@ -246,14 +331,16 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setCharityItemAdapter(){
         if (charityItemAdapter == null){
-            charityItemAdapter = new CharityItemAdapter(setCharityItemModalList());
+            charityItemAdapter = new CharityItemAdapter(setCharityItemModalList(), this);
+            charityItemAdapter.setOnClickListener(onClickListener);
         }
         recyclerViewRequests.setAdapter(charityItemAdapter);
     }
 
-    private void getVideoActivity(){
+    private void getVideoActivity(CharityItemModal charityItemModal){
         Intent intent = new Intent();
         intent.setClass(this, VideoActivity.class);
+        intent.putExtra(Config.KEY_CHARITY_ITEM_MODAL, charityItemModal);
         startActivity(intent);
     }
 
@@ -276,7 +363,11 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.imageViewPlus:
-                    getVideoActivity();
+                    getVideoActivity(null);
+                    break;
+                case R.id.customTextViewReply:
+                    CharityItemModal charityItemModal = (CharityItemModal) view.getTag();
+                    getVideoActivity(charityItemModal);
                     break;
                 case R.id.image_button_navigation_view:
                     drawerLayout.openDrawer(Gravity.LEFT);
@@ -285,6 +376,66 @@ public class MainActivity extends AppCompatActivity {
                     openSettingsActivity();
                     break;
             }
+        }
+    };
+
+    /**
+     * Created By:   Shiny Solutions
+     * Created On:  05/14/2018
+     */
+    TabLayout.OnTabSelectedListener onTabSelectedListener = new TabLayout.OnTabSelectedListener() {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab) {
+            customTextViewByName.setText(String.format("By %s", tab.getText()));
+
+            switch (tab.getPosition()){
+                case 1:
+                    Collections.sort(charityItemAdapter.getCharityItemModalList(), new Comparator<CharityItemModal>() {
+                        @Override
+                        public int compare(CharityItemModal charityItemModal, CharityItemModal t1) {
+                            return charityItemModal.getCountry().compareTo(t1.getCountry());
+                        }
+                    });
+                    charityItemAdapter.setCharityItemModalList(charityItemAdapter.getCharityItemModalList());
+                    break;
+                case 2:
+                    Collections.sort(charityItemAdapter.getCharityItemModalList(), new Comparator<CharityItemModal>() {
+                        @Override
+                        public int compare(CharityItemModal charityItemModal, CharityItemModal t1) {
+                            return charityItemModal.getName().compareTo(t1.getName());
+                        }
+                    });
+                    charityItemAdapter.setCharityItemModalList(charityItemAdapter.getCharityItemModalList());
+                    break;
+                case 0:
+                    Collections.sort(charityItemAdapter.getCharityItemModalList(), new Comparator<CharityItemModal>() {
+                        @Override
+                        public int compare(CharityItemModal charityItemModal, CharityItemModal t1) {
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm a");
+                            Date dateSource = null;
+                            Date dateDestination = null;
+                            try {
+                                dateSource = simpleDateFormat.parse(charityItemModal.getDate() + " " + charityItemModal.getTime());
+                                dateDestination = simpleDateFormat.parse(t1.getDate() + " " + t1.getTime());
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            return dateSource.compareTo(dateDestination);
+                        }
+                    });
+                    charityItemAdapter.setCharityItemModalList(charityItemAdapter.getCharityItemModalList());
+                    break;
+            }
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+
         }
     };
 }
