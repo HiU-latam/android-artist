@@ -44,8 +44,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.an.customfontview.CustomTextView;
+import com.hiulatam.hiu.hiuartist.common.Config;
 import com.hiulatam.hiu.hiuartist.customclass.AutoFitTextureView;
 import com.hiulatam.hiu.hiuartist.dialog.VideoSaveConfirmationDialogFragment;
+import com.hiulatam.hiu.hiuartist.modal.CharityItemModal;
 
 import java.io.File;
 import java.io.IOException;
@@ -82,6 +85,7 @@ public class VideoActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView imageViewVideoCapture;
     private AutoFitTextureView imageViewVideo;
+    private CustomTextView customTextViewName;
 
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
@@ -95,6 +99,8 @@ public class VideoActivity extends AppCompatActivity {
     private Integer mSensorOrientation;
     private String mNextVideoAbsolutePath;
     private boolean mIsRecordingVideo;
+
+    private CharityItemModal charityItemModal;
 
 
 
@@ -169,6 +175,8 @@ public class VideoActivity extends AppCompatActivity {
         imageViewVideoCapture = (ImageView) findViewById(R.id.imageViewCaptureVideo);
 
         imageViewVideo = (AutoFitTextureView) findViewById(R.id.imageViewVideo);
+
+        customTextViewName = (CustomTextView) findViewById(R.id.customTextViewName);
     }
 
     /**
@@ -182,6 +190,17 @@ public class VideoActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_back);
 
         checkPermission();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            if (bundle.containsKey(Config.KEY_CHARITY_ITEM_MODAL)){
+                charityItemModal = (CharityItemModal) bundle.getParcelable(Config.KEY_CHARITY_ITEM_MODAL);
+            }
+        }
+
+        if (charityItemModal != null){
+            customTextViewName.setText(String.format("FOR %S", charityItemModal.getName()));
+        }
     }
 
     /**

@@ -62,7 +62,8 @@
         android:background="@drawable/video_bottom_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"></View>
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"></View>
 
     <View
         android:id="@+id/viewBottomBarContent"
@@ -75,7 +76,8 @@
         app:layout_constraintRight_toRightOf="@+id/viewBottomBar"
         android:layout_marginTop="@dimen/regular_padding"
         android:layout_marginLeft="@dimen/large_padding"
-        android:layout_marginRight="@dimen/large_padding"></View>
+        android:layout_marginRight="@dimen/large_padding"
+        android:visibility="gone"></View>
 
     <View
         android:id="@+id/viewVerticalLineLeft"
@@ -86,7 +88,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
         app:layout_constraintLeft_toLeftOf="@+id/viewBottomBarContent"
         app:layout_constraintRight_toRightOf="@+id/viewBottomBarContent"
-        app:layout_constraintHorizontal_bias="0.32"></View>
+        app:layout_constraintHorizontal_bias="0.32"
+        android:visibility="gone"></View>
 
     <View
         android:id="@+id/viewVerticalLineRight"
@@ -97,7 +100,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
         app:layout_constraintLeft_toLeftOf="@+id/viewBottomBarContent"
         app:layout_constraintRight_toRightOf="@+id/viewBottomBarContent"
-        app:layout_constraintHorizontal_bias="0.66"></View>
+        app:layout_constraintHorizontal_bias="0.66"
+        android:visibility="gone"></View>
 
     <com.an.customfontview.CustomTextView
         android:id="@+id/customTextViewSize"
@@ -111,7 +115,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/viewBottomBarContent"
         app:layout_constraintRight_toRightOf="@+id/viewVerticalLineLeft"
         app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
-        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"/>
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        android:visibility="gone"/>
 
     <com.an.customfontview.CustomTextView
         android:id="@+id/customTextViewQty"
@@ -126,7 +131,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/viewVerticalLineLeft"
         app:layout_constraintRight_toRightOf="@+id/viewVerticalLineRight"
         app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
-        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"/>
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        android:visibility="gone"/>
 
     <com.hiulatam.hiu.hiuartist.customclass.TextViewWithImages
         android:id="@+id/customTextViewColor"
@@ -141,6 +147,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/viewVerticalLineRight"
         app:layout_constraintRight_toRightOf="@+id/viewBottomBarContent"
         app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
-        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"/>
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        android:visibility="gone"/>
 
 </android.support.constraint.ConstraintLayout>

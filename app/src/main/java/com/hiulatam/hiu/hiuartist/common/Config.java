@@ -11,6 +11,9 @@ public class Config {
 
     public static final String TAG = "com.hiulatam.hiu";
 
+    public static final String KEY_CHARITY_ITEM_MODAL = "CHARITY_ITEM_MODAL";
+
+
     public static void LogInfo(String message){
         Log.i(TAG, message);
     }
