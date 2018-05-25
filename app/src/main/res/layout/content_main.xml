@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hiulatam.hiu.hiuartist.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <ImageView
+        android:id="@+id/imageViewIconApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_app"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/very_large_padding"
+        android:visibility="gone"/>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/textViewMostrecents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/most_recents"
+        style="@style/regularFont.black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewIconApp"
+        android:layout_marginLeft="@dimen/very_large_padding"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/imageViewDownArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/down_arrow"
+        app:layout_constraintLeft_toRightOf="@+id/textViewMostrecents"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewIconApp"
+        app:layout_constraintTop_toTopOf="@+id/textViewMostrecents"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMostrecents"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/relativeLayoutMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_month_bg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewIconApp"
+        android:layout_marginRight="@dimen/very_large_padding"
+        android:visibility="gone">
+        <Spinner
+            android:id="@+id/spinnerMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:background="@null"></Spinner>
+        <ImageView
+            android:id="@+id/imageViewMonthUpArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/month_up_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginBottom="@dimen/small_padding"
+            android:layout_marginRight="@dimen/small_padding"/>
+        <ImageView
+            android:id="@+id/imageViewMonthDownArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/month_down_arrow"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginTop="@dimen/small_padding"
+            android:layout_marginRight="@dimen/small_padding"/>
+    </FrameLayout>
+    
+    <ImageView
+        android:id="@+id/imageViewBGSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/history_bg"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayoutMonth"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/very_large_padding"
+        android:layout_marginTop="@dimen/large_padding"
+        android:visibility="gone"/>
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewByName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBGSeparator"
+        android:layout_marginLeft="@dimen/very_large_padding"
+        android:text="@string/by_name"
+        style="@style/regularFont.colorPrimary"/>
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBGSeparator"
+        app:layout_constraintLeft_toRightOf="@+id/customTextViewByName"
+        android:text="42"
+        android:background="@drawable/circle_colorprimary"
+        style="@style/smallFont.white"
+        android:layout_marginLeft="@dimen/very_small_padding"
+        android:padding="@dimen/so_small_padding"
+        app:layout_constraintBottom_toBottomOf="@+id/customTextViewByName"
+        android:layout_marginBottom="@dimen/small_padding"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewRequests"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/customTextViewByName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewPlus"
+        android:scrollbars="vertical"
+        ></android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/imageViewPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/regular_padding"
+        android:visibility="gone"/>
+
+
+
+</android.support.constraint.ConstraintLayout>

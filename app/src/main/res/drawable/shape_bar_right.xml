@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/colorPrimary"></solid>
+            <size android:width="@dimen/double_extra_large_padding" android:height="?attr/actionBarSize"></size>
+            <padding android:right="@dimen/regular_padding"></padding>
+        </shape>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/ic_bar_plus" android:gravity="center_vertical|right"></bitmap>
+    </item>
+</layer-list>

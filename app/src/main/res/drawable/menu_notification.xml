@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/ic_menu_rectangle_1"></bitmap>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/ic_menu_objeto_inteligente_vectorial"></bitmap>
+    </item>
+</layer-list>

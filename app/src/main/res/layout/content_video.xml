@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hiulatam.hiu.hiuartist.VideoActivity"
+    tools:showIn="@layout/activity_video">
+    <com.hiulatam.hiu.hiuartist.customclass.AutoFitTextureView
+        android:id="@+id/imageViewVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/viewBottomBar"/>
+
+    <ImageView
+        android:id="@+id/imageViewIconApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_app"
+        android:layout_marginRight="@dimen/regular_padding"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageViewFrame"
+        android:layout_width="@dimen/video_frame"
+        android:layout_height="@dimen/video_frame"
+        android:src="@drawable/capture_frame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/viewBottomBar"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/for_mary_sknow"
+        android:gravity="center"
+        style="@style/thrice_extra_large_font.bold.colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewIconApp"/>
+
+    <ImageView
+        android:id="@+id/imageViewCaptureVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/capture_shade"
+        android:layout_marginBottom="@dimen/large_padding"
+        app:layout_constraintBottom_toTopOf="@+id/viewBottomBar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <View
+        android:id="@+id/viewBottomBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/video_bottom_bar_height"
+        android:background="@drawable/video_bottom_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"></View>
+
+    <View
+        android:id="@+id/viewBottomBarContent"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/video_bottom_content_height"
+        android:background="@drawable/video_bottom_content_bg"
+
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBar"
+        app:layout_constraintLeft_toLeftOf="@+id/viewBottomBar"
+        app:layout_constraintRight_toRightOf="@+id/viewBottomBar"
+        android:layout_marginTop="@dimen/regular_padding"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"
+        android:visibility="gone"></View>
+
+    <View
+        android:id="@+id/viewVerticalLineLeft"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#18232a"
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        app:layout_constraintLeft_toLeftOf="@+id/viewBottomBarContent"
+        app:layout_constraintRight_toRightOf="@+id/viewBottomBarContent"
+        app:layout_constraintHorizontal_bias="0.32"
+        android:visibility="gone"></View>
+
+    <View
+        android:id="@+id/viewVerticalLineRight"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#18232a"
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        app:layout_constraintLeft_toLeftOf="@+id/viewBottomBarContent"
+        app:layout_constraintRight_toRightOf="@+id/viewBottomBarContent"
+        app:layout_constraintHorizontal_bias="0.66"
+        android:visibility="gone"></View>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_down_arrow"
+        android:text="@string/size"
+        android:paddingRight="@dimen/regular_padding"
+        android:drawablePadding="@dimen/regular_padding"
+        style="@style/regularFont.colorPrimary"
+        app:layout_constraintLeft_toLeftOf="@+id/viewBottomBarContent"
+        app:layout_constraintRight_toRightOf="@+id/viewVerticalLineLeft"
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        android:visibility="gone"/>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewQty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_down_arrow"
+        android:text="@string/qty"
+        android:paddingRight="@dimen/regular_padding"
+        android:drawablePadding="@dimen/regular_padding"
+        style="@style/regularFont.colorPrimary"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/viewVerticalLineLeft"
+        app:layout_constraintRight_toRightOf="@+id/viewVerticalLineRight"
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        android:visibility="gone"/>
+
+    <com.hiulatam.hiu.hiuartist.customclass.TextViewWithImages
+        android:id="@+id/customTextViewColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_down_arrow"
+        android:text="@string/color"
+        android:paddingRight="@dimen/regular_padding"
+        android:drawablePadding="@dimen/regular_padding"
+        style="@style/regularFont.colorPrimary"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/viewVerticalLineRight"
+        app:layout_constraintRight_toRightOf="@+id/viewBottomBarContent"
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBarContent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottomBarContent"
+        android:visibility="gone"/>
+
+</android.support.constraint.ConstraintLayout>

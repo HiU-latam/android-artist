@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hiulatam.hiu.hiuartist.VideoActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/shape_video_bar_bg"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+            <com.an.customfontview.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/record_video"
+                android:layout_gravity="center_horizontal"
+                android:drawableRight="@drawable/ic_down_arrow"
+                style="@style/regularFont.colorPrimary"
+                android:paddingRight="@dimen/regular_padding"
+                android:drawablePadding="@dimen/regular_padding"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/image_button_settings"
+                android:src="@drawable/shape_bar_right"
+                android:layout_gravity="end|center_vertical"/>
+
+
+
+
+
+
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+
+
+    </android.support.design.widget.AppBarLayout>
+    <include layout="@layout/content_video"></include>
+
+</android.support.design.widget.CoordinatorLayout>

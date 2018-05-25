@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#a6a6a6"></solid>
+            <stroke android:color="#b4bbe4" android:width="@dimen/video_capture_border_width_seven"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#b3b3b3"></solid>
+            <stroke android:color="#a1aade" android:width="@dimen/video_capture_border_width_six"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#bfbfbf"></solid>
+            <stroke android:color="#8e99d7" android:width="@dimen/video_capture_border_width_five"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#cccccc"></solid>
+            <stroke android:color="#7b88d1" android:width="@dimen/video_capture_border_width_four"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#d9d9d9"></solid>
+            <stroke android:color="#6877ca" android:width="@dimen/video_capture_border_width_three"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#e6e6e6"></solid>
+            <stroke android:color="#5566c3" android:width="@dimen/video_capture_border_width_two"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="#f2f2f2"></solid>
+            <stroke android:color="#4255bd" android:width="@dimen/video_capture_border_width_one"></stroke>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp"></padding>
+            <size android:width="@dimen/video_capture_width" android:height="@dimen/video_capture_height"></size>
+            <solid android:color="@color/white"></solid>
+            <stroke android:color="@color/colorPrimary" android:width="@dimen/video_capture_border_width"></stroke>
+        </shape>
+    </item>
+
+
+
+
+
+</layer-list>

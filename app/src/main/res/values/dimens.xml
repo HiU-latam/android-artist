@@ -1,0 +1,105 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    <dimen name="nav_header_vertical_spacing">10dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">10dp</dimen>
+
+    <dimen name="so_small_font">6sp</dimen>
+    <dimen name="very_small_font">10sp</dimen>
+    <dimen name="small_font">14sp</dimen>
+    <dimen name="regular_font">18sp</dimen>
+    <dimen name="large_font">22sp</dimen>
+    <dimen name="very_large_font">26sp</dimen>
+    <dimen name="extra_large_font">30sp</dimen>
+    <dimen name="double_extra_large_font">34sp</dimen>
+    <dimen name="thrice_extra_large_font">66sp</dimen>
+
+    <dimen name="so_small_padding">2dp</dimen>
+    <dimen name="very_small_padding">4dp</dimen>
+    <dimen name="small_padding">6dp</dimen>
+    <dimen name="regular_padding">10dp</dimen>
+    <dimen name="large_padding">16dp</dimen>
+    <dimen name="very_large_padding">26dp</dimen>
+    <dimen name="extra_large_padding">42dp</dimen>
+    <dimen name="double_extra_large_padding">68dp</dimen>
+    <dimen name="more_extra_large_padding">110dp</dimen>
+    <dimen name="so_more_extra_large_padding">178dp</dimen>
+    <dimen name="huge_extra_large_padding">288dp</dimen>
+
+    <dimen name="app_bar_height">68dp</dimen>
+
+    <dimen name="charity_content_square_difference_one">25dp</dimen>
+    <dimen name="charity_content_square_difference_two">50dp</dimen>
+    <dimen name="charity_content_square_difference_three">75dp</dimen>
+    <dimen name="charity_content_square_one">150dp</dimen>
+    <dimen name="charity_content_square_one_one">151dp</dimen>
+    <dimen name="charity_content_square_one_two">152dp</dimen>
+    <dimen name="charity_content_square_one_three">153dp</dimen>
+    <dimen name="charity_content_square_one_four">154dp</dimen>
+    <dimen name="charity_content_square_one_five">155dp</dimen>
+    <dimen name="charity_content_square_one_six">156dp</dimen>
+    <dimen name="charity_content_square_one_seven">157dp</dimen>
+    <dimen name="charity_content_square_two">175dp</dimen>
+    <dimen name="charity_content_square_three">200dp</dimen>
+    <dimen name="charity_content_square_four">225dp</dimen>
+    <dimen name="charity_content_square_five">250dp</dimen>
+    <dimen name="charity_content_square_six">275dp</dimen>
+    <dimen name="charity_content_square_seven">300dp</dimen>
+    <dimen name="charity_content_square_eight">325dp</dimen>
+
+    <dimen name="video_frame">265dp</dimen>
+
+    <dimen name="video_bottom_bar_height">160dp</dimen>
+
+    <dimen name="video_bottom_content_height">68dp</dimen>
+
+
+    <dimen name="video_capture_border_width">10dp</dimen>
+    <dimen name="video_capture_width">68dp</dimen>
+    <dimen name="video_capture_height">68dp</dimen>
+    <dimen name="video_capture_border_width_one">12dp</dimen>
+    <dimen name="video_capture_width_one">70dp</dimen>
+    <dimen name="video_capture_height_one">70dp</dimen>
+    <dimen name="video_capture_border_width_two">13dp</dimen>
+    <dimen name="video_capture_width_two">71dp</dimen>
+    <dimen name="video_capture_height_two">71dp</dimen>
+    <dimen name="video_capture_border_width_three">14dp</dimen>
+    <dimen name="video_capture_width_three">72dp</dimen>
+    <dimen name="video_capture_height_three">72dp</dimen>
+    <dimen name="video_capture_border_width_four">15dp</dimen>
+    <dimen name="video_capture_width_four">73dp</dimen>
+    <dimen name="video_capture_height_four">73dp</dimen>
+    <dimen name="video_capture_border_width_five">16dp</dimen>
+    <dimen name="video_capture_width_five">74dp</dimen>
+    <dimen name="video_capture_height_five">74dp</dimen>
+    <dimen name="video_capture_border_width_six">18dp</dimen>
+    <dimen name="video_capture_width_six">76dp</dimen>
+    <dimen name="video_capture_height_six">76dp</dimen>
+    <dimen name="video_capture_border_width_seven">20dp</dimen>
+
+
+    <dimen name="video_save_confirmation_dialog_height">178dp</dimen>
+    <dimen name="video_save_confirmation_dialog_height_one">179dp</dimen>
+    <dimen name="video_save_confirmation_dialog_height_two">180dp</dimen>
+
+    <dimen name="button_width">150dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+
+    <dimen name="dialog_width">400dp</dimen>
+    <dimen name="dialog_height">120dp</dimen>
+
+    <dimen name="menu_mask_width_height">100dp</dimen>
+
+    <dimen name="settings_group_item_height">90dp</dimen>
+    <dimen name="settings_expanded_item">57dp</dimen>
+    <dimen name="settings_expanded_dotted_height">60dp</dimen>
+
+    <dimen name="settings_vertical_separator_height">64dp</dimen>
+
+    <dimen name="recent_requests_width">288dp</dimen>
+    <dimen name="recent_requests_left">100dp</dimen>
+
+
+</resources>
