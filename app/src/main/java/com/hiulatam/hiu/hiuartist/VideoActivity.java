@@ -83,7 +83,7 @@ public class VideoActivity extends AppCompatActivity {
     private static final String FRAGMENT_DIALOG = "dialog";
 
     private Toolbar toolbar;
-    private ImageView imageViewVideoCapture;
+    private ImageView imageViewVideoCapture, imageViewFrontCamera;
     private AutoFitTextureView imageViewVideo;
     private CustomTextView customTextViewName;
 
@@ -102,6 +102,7 @@ public class VideoActivity extends AppCompatActivity {
 
     private CharityItemModal charityItemModal;
 
+    private Boolean FRONT_FACING_CAMERA = false;
 
 
     @Override
@@ -177,6 +178,8 @@ public class VideoActivity extends AppCompatActivity {
         imageViewVideo = (AutoFitTextureView) findViewById(R.id.imageViewVideo);
 
         customTextViewName = (CustomTextView) findViewById(R.id.customTextViewName);
+
+        imageViewFrontCamera = (ImageView) findViewById(R.id.imageViewFrontCamera);
     }
 
     /**
@@ -209,6 +212,7 @@ public class VideoActivity extends AppCompatActivity {
      */
     private void addListeners(){
         imageViewVideoCapture.setOnClickListener(onClickListener);
+        imageViewFrontCamera.setOnClickListener(onClickListener);
     }
 
     private void openVideoConfirmationDialog(){
@@ -305,16 +309,6 @@ public class VideoActivity extends AppCompatActivity {
         prefsEditor.commit();
     }
 
-    public static Camera getCameraInstance(){
-        Camera c = null;
-        try{
-            c = Camera.open();
-        }catch (Exception e){
-
-        }
-        return c;
-    }
-
     protected void startBackgroundThread(){
         mBackgroundThread = new HandlerThread("Camera Background");
         mBackgroundThread.start();
@@ -378,8 +372,26 @@ public class VideoActivity extends AppCompatActivity {
             if (!mCameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
-            String cameraId = manager.getCameraIdList()[0];
-            CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+
+            Config.LogInfo(TAG + "openCamera - front facing camera: " + FRONT_FACING_CAMERA);
+            String cameraId = null;
+            CameraCharacteristics characteristics = null;
+            if (FRONT_FACING_CAMERA){
+                for(int i = 0; i < manager.getCameraIdList().length; i++){
+                    cameraId = manager.getCameraIdList()[i];
+                    Config.LogInfo(TAG + "openCamera - camera ID: " + cameraId);
+                    characteristics = manager.getCameraCharacteristics(cameraId);
+                    if (characteristics != null & characteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_FRONT){
+                        Config.LogInfo(TAG + "openCamera - found front facing lance ");
+
+                        characteristics = manager.getCameraCharacteristics(cameraId);
+                    }
+                }
+            }else {
+                cameraId = manager.getCameraIdList()[0];
+                characteristics = manager.getCameraCharacteristics(cameraId);
+            }
+
             StreamConfigurationMap map = characteristics
                     .get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
             mSensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
@@ -642,6 +654,21 @@ public class VideoActivity extends AppCompatActivity {
                         startRecordingVideo();
                     }
 
+                    break;
+                case R.id.imageViewFrontCamera:
+                    if (FRONT_FACING_CAMERA)
+                        FRONT_FACING_CAMERA = false;
+                    else
+                        FRONT_FACING_CAMERA = true;
+
+                    closeCamera();
+                    stopBackgroundThread();
+                    startBackgroundThread();
+                    if (imageViewVideo.isAvailable()){
+                        openCamera(imageViewVideo.getWidth(), imageViewVideo.getHeight());
+                    } else {
+                        imageViewVideo.setSurfaceTextureListener(mSurfaceTextureListener);
+                    }
                     break;
             }
         }
