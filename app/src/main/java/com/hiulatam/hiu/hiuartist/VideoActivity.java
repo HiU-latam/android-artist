@@ -216,14 +216,9 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void openVideoConfirmationDialog(){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
-        if (prev != null)
-            ft.remove(prev);
-        ft.addToBackStack(null);
 
-        VideoSaveConfirmationDialogFragment videoSaveConfirmationDialogFragment = VideoSaveConfirmationDialogFragment.newInstance();
-        videoSaveConfirmationDialogFragment.show(ft, "dialog");
+        VideoSaveConfirmationDialogFragment videoSaveConfirmationDialogFragment = new VideoSaveConfirmationDialogFragment();
+        videoSaveConfirmationDialogFragment.show(getSupportFragmentManager(), "VideoSaveConfirmationDialogFragment");
     }
 
     /**
