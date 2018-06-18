@@ -645,8 +645,10 @@ public class VideoActivity extends AppCompatActivity {
                     if (mIsRecordingVideo) {
                         stopRecordingVideo();
                         openVideoConfirmationDialog();
+                        imageViewVideoCapture.setImageResource(R.drawable.capture_shade);
                     } else {
                         startRecordingVideo();
+                        imageViewVideoCapture.setImageResource(R.drawable.record_capture_shade);
                     }
 
                     break;
