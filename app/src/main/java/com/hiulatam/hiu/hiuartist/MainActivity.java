@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,10 +22,14 @@ import com.an.customfontview.CustomTextView;
 import com.hiulatam.hiu.hiuartist.adapter.CharityItemAdapter;
 import com.hiulatam.hiu.hiuartist.common.Config;
 import com.hiulatam.hiu.hiuartist.customclass.DividerItemDecoration;
+import com.hiulatam.hiu.hiuartist.customclass.FilterResultsCallback;
 import com.hiulatam.hiu.hiuartist.modal.CharityItemModal;
 import com.hiulatam.hiu.hiuartist.utils.circleTransform;
 import com.hiulatam.hiu.hiuartist.utils.profileUser;
 import com.squareup.picasso.Picasso;
+import com.twitter.sdk.android.core.models.Search;
+
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private CustomTextView customTextViewByName, customTextViewCount;
     private TabLayout tab_layout_celebrity;
+    private SearchView search_view_celebrity;
+    private TextView textViewEmptyResult;
 
     private ArrayAdapter monthAdapter;
     private CharityItemAdapter charityItemAdapter;
@@ -98,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
         customTextViewCount = (CustomTextView) findViewById(R.id.customTextViewCount);
 
         tab_layout_celebrity = (TabLayout) findViewById(R.id.tab_layout_celebrity);
+
+        search_view_celebrity = (SearchView) findViewById(R.id.search_view_celebrity);
+
+        textViewEmptyResult = (TextView)  findViewById(R.id.textViewEmptyResult);
     }
 
     /**
@@ -131,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewPlus.setOnClickListener(onClickListener);
         imageButtonSettings.setOnClickListener(onClickListener);
         tab_layout_celebrity.addOnTabSelectedListener(onTabSelectedListener);
+        search_view_celebrity.setOnQueryTextListener(onQueryTextListener);
     }
 
     private void facebookprofilefill() {
@@ -333,6 +345,7 @@ public class MainActivity extends AppCompatActivity {
         if (charityItemAdapter == null){
             charityItemAdapter = new CharityItemAdapter(setCharityItemModalList(), this);
             charityItemAdapter.setOnClickListener(onClickListener);
+            charityItemAdapter.setFilterResultsCallback(filterResultsCallback);
         }
         recyclerViewRequests.setAdapter(charityItemAdapter);
     }
@@ -436,6 +449,39 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onTabReselected(TabLayout.Tab tab) {
 
+        }
+    };
+
+    SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            Config.LogInfo(TAG + "onQueryTextChange");
+            charityItemAdapter.getFilter().filter(newText);
+            return false;
+        }
+    };
+
+    /**
+     * Created By:  Shiny Solutions
+     * Created On:  05/31/2018
+     */
+    FilterResultsCallback filterResultsCallback = new FilterResultsCallback() {
+        @Override
+        public void getFilterResultCount(int filterResultCount) {
+            if (filterResultCount > 0){
+                textViewEmptyResult.setVisibility(View.GONE);
+                recyclerViewRequests.setVisibility(View.VISIBLE);
+            }else{
+                textViewEmptyResult.setText(getString(R.string.empty_result));
+                textViewEmptyResult.setVisibility(View.VISIBLE);
+                recyclerViewRequests.setVisibility(View.GONE);
+            }
         }
     };
 }

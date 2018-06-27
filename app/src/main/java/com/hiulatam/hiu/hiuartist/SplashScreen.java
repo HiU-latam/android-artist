@@ -46,6 +46,7 @@ public class SplashScreen extends AppCompatActivity {
                 public void onAnimationCompleted(int loopNumber) {
                     Intent intent= new Intent(context,LoginActivity.class);
                     context.startActivity(intent);
+                    finish();
 
 
                 }
