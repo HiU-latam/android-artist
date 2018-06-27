@@ -87,7 +87,7 @@
     <dimen name="button_width">150dp</dimen>
     <dimen name="button_height">40dp</dimen>
 
-    <dimen name="dialog_width">400dp</dimen>
+    <dimen name="dialog_width">300dp</dimen>
     <dimen name="dialog_height">120dp</dimen>
 
     <dimen name="menu_mask_width_height">100dp</dimen>
