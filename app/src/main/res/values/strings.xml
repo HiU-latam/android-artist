@@ -73,4 +73,10 @@
     <string name="more_options">More options</string>
     <string name="recent_request">Recent request</string>
     <string name="logout">Logout</string>
+
+    <!--Charity Preferences-->
+    <string name="charity_1">United Way Worldwide</string>
+    <string name="charity_2">Task Force for Global Health</string>
+    <string name="charity_3">Feeding America</string>
+    <string name="charity_4">Salvation Army</string>
 </resources>

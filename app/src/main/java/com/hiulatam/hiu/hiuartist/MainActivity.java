@@ -474,6 +474,7 @@ public class MainActivity extends AppCompatActivity {
     FilterResultsCallback filterResultsCallback = new FilterResultsCallback() {
         @Override
         public void getFilterResultCount(int filterResultCount) {
+            customTextViewCount.setText(String.valueOf(filterResultCount));
             if (filterResultCount > 0){
                 textViewEmptyResult.setVisibility(View.GONE);
                 recyclerViewRequests.setVisibility(View.VISIBLE);

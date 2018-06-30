@@ -3,7 +3,4 @@
     <item>
         <bitmap android:src="@drawable/ic_menu_rectangle_1"></bitmap>
     </item>
-    <item>
-        <bitmap android:src="@drawable/ic_menu_objeto_inteligente_vectorial"></bitmap>
-    </item>
 </layer-list>

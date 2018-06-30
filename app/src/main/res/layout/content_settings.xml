@@ -85,7 +85,8 @@
         android:id="@+id/frameLayoutRecentRequests"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone">
         <include
             layout="@layout/content_recent_requests"/>
     </FrameLayout>

@@ -31,8 +31,7 @@
             android:id="@+id/customTextViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mary Snow"
-            android:drawableRight="@drawable/down_arrow"/>
+            android:text="Mary Snow"/>
         <com.an.customfontview.CustomTextView
             android:id="@+id/customTextViewTimeAndDate"
             android:layout_width="wrap_content"
