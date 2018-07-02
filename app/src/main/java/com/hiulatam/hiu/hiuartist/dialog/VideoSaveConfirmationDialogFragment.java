@@ -14,6 +14,8 @@ import com.an.customfontview.CustomButton;
 import com.hiulatam.hiu.hiuartist.R;
 import com.hiulatam.hiu.hiuartist.common.Config;
 
+import java.io.File;
+
 /**
  * Created by:  Shiny Solutions
  * Created on:  11/15/17.
@@ -24,6 +26,8 @@ public class VideoSaveConfirmationDialogFragment extends DialogFragment {
     private static final String TAG = "VideoSaveConfirmationDialogFragment";
 
     private CustomButton buttonPositive, buttonNegative;
+
+    private String mFilePath;
 
 
     public static VideoSaveConfirmationDialogFragment newInstance(){
@@ -53,11 +57,17 @@ public class VideoSaveConfirmationDialogFragment extends DialogFragment {
         buttonPositive.setOnClickListener(onClickListener);
     }
 
+    public void getFilePath(String filePath){
+        mFilePath = filePath;
+    }
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.customButtonCancel:
+                    File file = new File(mFilePath);
+                    file.deleteOnExit();
                     getDialog().dismiss();
                     getActivity().finish();
                     break;
