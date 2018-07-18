@@ -26,9 +26,7 @@ public class VideoSaveConfirmationDialogFragment extends DialogFragment {
     private static final String TAG = "VideoSaveConfirmationDialogFragment";
 
     private CustomButton buttonPositive, buttonNegative;
-
     private String mFilePath;
-
 
     public static VideoSaveConfirmationDialogFragment newInstance(){
         VideoSaveConfirmationDialogFragment videoSaveConfirmationDialogFragment = new VideoSaveConfirmationDialogFragment();
@@ -56,11 +54,9 @@ public class VideoSaveConfirmationDialogFragment extends DialogFragment {
         buttonNegative.setOnClickListener(onClickListener);
         buttonPositive.setOnClickListener(onClickListener);
     }
-
     public void getFilePath(String filePath){
         mFilePath = filePath;
     }
-
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

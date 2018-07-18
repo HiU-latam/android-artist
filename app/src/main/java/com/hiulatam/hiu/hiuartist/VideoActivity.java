@@ -717,8 +717,6 @@ public class VideoActivity extends AppCompatActivity {
                                 stopRecordingVideo();
                             }
                         }, 1000);
-
-
                         imageViewVideoCapture.setImageResource(R.drawable.capture_shade);
                     } else {
                         startRecordingVideo();
