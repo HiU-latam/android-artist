@@ -2,9 +2,11 @@ package com.hiulatam.hiu.hiuartist.adapter;
 
 import android.view.View;
 import android.view.animation.RotateAnimation;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.an.customfontview.CustomEditText;
 import com.an.customfontview.CustomTextView;
 import com.hiulatam.hiu.hiuartist.R;
 import com.hiulatam.hiu.hiuartist.common.Config;
@@ -23,8 +25,10 @@ public class SettingItemViewHolder extends GroupViewHolder {
     private static final String TAG = "SettingItemViewHolder - ";
 
     private ImageView imageViewNonAct, imageViewMenuIcon, imageViewMenuArrow, imageViewMenuNotification;
-    private CustomTextView customTextViewMenuName, customTextViewMenuNotification;
+    private CustomTextView customTextViewMenuName;
     private RelativeLayout relativeLayoutMenu;
+    private CheckBox checkboxMenuNotification;
+    private CustomEditText textMenuNotification;
 
     public SettingItemViewHolder(View itemView) {
         super(itemView);
@@ -33,8 +37,9 @@ public class SettingItemViewHolder extends GroupViewHolder {
         imageViewMenuArrow = (ImageView) itemView.findViewById(R.id.imageViewMenuArrow);
         imageViewMenuIcon = (ImageView) itemView.findViewById(R.id.imageViewMenuIcon);
         relativeLayoutMenu = (RelativeLayout) itemView.findViewById(R.id.relativeLayoutMenu);
-        customTextViewMenuNotification = (CustomTextView) itemView.findViewById(R.id.customTextViewMenuNotification);
+        textMenuNotification = (CustomEditText) itemView.findViewById(R.id.textMenuNotification);
         imageViewMenuNotification = (ImageView) itemView.findViewById(R.id.imageViewMenuNotification);
+        checkboxMenuNotification = (CheckBox) itemView.findViewById(R.id.checkboxMenuNotification);
     }
 
     public void setMenuTitle(SettingItemModal settingItemModal){
@@ -74,8 +79,8 @@ public class SettingItemViewHolder extends GroupViewHolder {
         return relativeLayoutMenu;
     }
 
-    public CustomTextView getCustomTextViewMenuNotification() {
-        return customTextViewMenuNotification;
+    public CustomEditText getTextMenuNotification() {
+        return textMenuNotification;
     }
 
     public CustomTextView getCustomTextViewMenuName() {
@@ -88,5 +93,9 @@ public class SettingItemViewHolder extends GroupViewHolder {
 
     public ImageView getImageViewMenuIcon() {
         return imageViewMenuIcon;
+    }
+
+    public CheckBox getCheckboxMenuNotification() {
+        return checkboxMenuNotification;
     }
 }

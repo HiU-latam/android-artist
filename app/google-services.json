@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884974683195",
+    "firebase_url": "https://hiu-artist.firebaseio.com",
+    "project_id": "hiu-artist",
+    "storage_bucket": "hiu-artist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884974683195:android:1d3e81bca6ec6415",
+        "android_client_info": {
+          "package_name": "com.hiulatam.hiu.hiuartist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884974683195-40lnuqde8ukjd2fbmopam2fq3ra3h82g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hiulatam.hiu.hiuartist",
+            "certificate_hash": "42dbf83f15403f414745e8104ceb9df398ece231"
+          }
+        },
+        {
+          "client_id": "884974683195-l78of0ofelt9apgdflgtc919l5i2c3kn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4gXvdHmQlVirwTZcv0A0TcUEUiyPgfEo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884974683195-l78of0ofelt9apgdflgtc919l5i2c3kn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -34,16 +34,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/viewBottomBar"
         app:layout_constraintTop_toTopOf="parent"/>
-    <com.an.customfontview.CustomTextView
-        android:id="@+id/customTextViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/for_mary_sknow"
-        android:gravity="center"
-        style="@style/thrice_extra_large_font.bold.colorPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewIconApp"/>
+
 
     <ImageView
         android:id="@+id/imageViewCaptureVideo"
@@ -53,6 +44,17 @@
         android:layout_marginBottom="@dimen/large_padding"
         app:layout_constraintBottom_toTopOf="@+id/viewBottomBar"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/imageViewFrontCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_camera_switch"
+        android:layout_marginBottom="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"
+        app:layout_constraintBottom_toTopOf="@+id/viewBottomBar"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <ImageView
@@ -74,6 +76,33 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:visibility="invisible"></View>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/for_mary_sknow"
+        android:gravity="center"
+        style="@style/largeFont.bold.colorPrimary"
+        app:layout_constraintTop_toTopOf="@+id/viewBottomBar"
+        app:layout_constraintLeft_toLeftOf="@+id/viewBottomBar"
+        app:layout_constraintRight_toRightOf="@+id/viewBottomBar"
+        android:layout_marginTop="@dimen/regular_padding"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"/>
+
+    <com.an.customfontview.CustomTextView
+        android:id="@+id/customTextViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/largeFont.bold.colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/customTextViewName"
+        app:layout_constraintLeft_toLeftOf="@+id/customTextViewName"
+        app:layout_constraintRight_toRightOf="@+id/customTextViewName"
+        android:layout_marginTop="@dimen/regular_padding"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"/>
 
     <View
         android:id="@+id/viewBottomBarContent"

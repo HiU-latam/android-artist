@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 
 import com.hiulatam.hiu.hiuartist.R;
@@ -62,23 +63,26 @@ public class SettingsItemAdapter extends ExpandableRecyclerViewAdapter<SettingIt
             settingItemViewHolder.getRelativeLayoutMenu().setBackgroundResource(R.drawable.menu_group_bg);
         }
         SettingItemModal settingItemModal = (SettingItemModal) o;
-        settingItemViewHolder.getCustomTextViewMenuNotification().setVisibility(View.GONE);
+        settingItemViewHolder.getTextMenuNotification().setVisibility(View.GONE);
         settingItemViewHolder.getImageViewMenuNotification().setVisibility(View.GONE);
+        settingItemViewHolder.getCheckboxMenuNotification().setVisibility(View.GONE);
+        settingItemViewHolder.getCheckboxMenuNotification().setChecked(Config.getSharedPreferences(context).getBoolean(Config.PREFS_NOTIFICATION, false));
+        settingItemViewHolder.getCheckboxMenuNotification().setOnCheckedChangeListener(onCheckedChangeListener);
         settingItemViewHolder.getImageViewMenuIcon().setVisibility(View.VISIBLE);
         if (settingItemModal.getName().equalsIgnoreCase(context.getString(R.string.notification))){
-            settingItemViewHolder.getImageViewMenuNotification().setVisibility(View.VISIBLE);
+            settingItemViewHolder.getCheckboxMenuNotification().setVisibility(View.VISIBLE);
         }
         if (settingItemModal.getName().equalsIgnoreCase(context.getString(R.string.value_min_request))){
-            settingItemViewHolder.getCustomTextViewMenuNotification().setBackgroundResource(R.drawable.ic_menu_rectangle_1);
-            settingItemViewHolder.getCustomTextViewMenuNotification().setVisibility(View.VISIBLE);
+            settingItemViewHolder.getTextMenuNotification().setBackgroundResource(R.drawable.ic_menu_rectangle_1);
+            settingItemViewHolder.getTextMenuNotification().setVisibility(View.VISIBLE);
         }
         if (settingItemModal.getName().equalsIgnoreCase(context.getString(R.string.balance))){
             settingItemViewHolder.getImageViewMenuIcon().setVisibility(View.GONE);
-            settingItemViewHolder.getCustomTextViewMenuNotification().setVisibility(View.VISIBLE);
-            settingItemViewHolder.getCustomTextViewMenuNotification().setText("$850");
-            settingItemViewHolder.getCustomTextViewMenuNotification().setTextColor(Color.BLACK);
+            settingItemViewHolder.getTextMenuNotification().setVisibility(View.VISIBLE);
+            settingItemViewHolder.getTextMenuNotification().setText("$850");
+            settingItemViewHolder.getTextMenuNotification().setTextColor(Color.BLACK);
             settingItemViewHolder.getCustomTextViewMenuName().setTextColor(Color.BLACK);
-            settingItemViewHolder.getCustomTextViewMenuName().setTextSize(context.getResources().getDimension(R.dimen.large_font));
+            settingItemViewHolder.getCustomTextViewMenuName().setTextSize(context.getResources().getDimension(R.dimen.regular_font));
         }
         if (settingItemModal.getName().equalsIgnoreCase(context.getString(R.string.more_options))){
             settingItemViewHolder.getCustomTextViewMenuName().setTextColor(Color.BLACK);
@@ -96,4 +100,11 @@ public class SettingsItemAdapter extends ExpandableRecyclerViewAdapter<SettingIt
             settingsChildItemViewHolder.onBind(settingsChildItemModal, i);
         }
     }
+
+    CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            Config.getSharedPreferencesEditor(context).putBoolean(Config.PREFS_NOTIFICATION, isChecked).commit();
+        }
+    };
 }

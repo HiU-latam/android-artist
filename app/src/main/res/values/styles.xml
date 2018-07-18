@@ -120,6 +120,12 @@
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
+    <style name="largeFont.bold.colorPrimary" parent="@style/largeFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/extra_large_font</item>
+    </style>
+
     <style name="thrice_extra_large_font" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/thrice_extra_large_font</item>
     </style>

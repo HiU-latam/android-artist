@@ -5,10 +5,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
@@ -23,9 +26,12 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.provider.MediaStore;
 import android.support.annotation.BoolRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -52,9 +58,11 @@ import com.hiulatam.hiu.hiuartist.modal.CharityItemModal;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -76,6 +84,7 @@ public class VideoActivity extends AppCompatActivity {
             Manifest.permission.RECORD_AUDIO,
     };
     private static final int REQUEST_VIDEO_PERMISSIONS = 1;
+    private static final int REQUEST_TAKE_VIDEO_GALLERY = 2;
     private static final int SENSOR_ORIENTATION_DEFAULT_DEGREES = 90;
     private static final int SENSOR_ORIENTATION_INVERSE_DEGREES = 270;
     private static final SparseIntArray INVERSE_ORIENTATIONS = new SparseIntArray();
@@ -83,9 +92,9 @@ public class VideoActivity extends AppCompatActivity {
     private static final String FRAGMENT_DIALOG = "dialog";
 
     private Toolbar toolbar;
-    private ImageView imageViewVideoCapture, imageViewFrontCamera;
+    private ImageView imageViewVideoCapture, imageViewFrontCamera, image_button_settings;
     private AutoFitTextureView imageViewVideo;
-    private CustomTextView customTextViewName;
+    private CustomTextView customTextViewName, customTextViewMessage;
 
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
@@ -98,7 +107,10 @@ public class VideoActivity extends AppCompatActivity {
     private MediaRecorder mMediaRecorder;
     private Integer mSensorOrientation;
     private String mNextVideoAbsolutePath;
+    private String mVideoFilePath;
     private boolean mIsRecordingVideo;
+    private String fileManagerString;
+    private String selectedImagePath;
 
     private CharityItemModal charityItemModal;
 
@@ -166,6 +178,25 @@ public class VideoActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK){
+            if (requestCode == REQUEST_TAKE_VIDEO_GALLERY){
+                Uri selectedImageUri = data.getData();
+
+                fileManagerString = selectedImageUri.getPath();
+
+                selectedImagePath = getPath(selectedImageUri);
+
+                if (selectedImagePath != null){
+                    Toast.makeText(this, "Selected Video: " + selectedImagePath, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
     /**
      * Created by:  Shiny Solutions
      * Created on:  11/10/17.
@@ -180,6 +211,10 @@ public class VideoActivity extends AppCompatActivity {
         customTextViewName = (CustomTextView) findViewById(R.id.customTextViewName);
 
         imageViewFrontCamera = (ImageView) findViewById(R.id.imageViewFrontCamera);
+
+        customTextViewMessage = (CustomTextView) findViewById(R.id.customTextViewMessage);
+
+        image_button_settings = (ImageView) findViewById(R.id.image_button_settings);
     }
 
     /**
@@ -203,6 +238,7 @@ public class VideoActivity extends AppCompatActivity {
 
         if (charityItemModal != null){
             customTextViewName.setText(String.format("FOR %S", charityItemModal.getName()));
+            customTextViewMessage.setText(getString(R.string.dummy_message));
         }
     }
 
@@ -213,12 +249,16 @@ public class VideoActivity extends AppCompatActivity {
     private void addListeners(){
         imageViewVideoCapture.setOnClickListener(onClickListener);
         imageViewFrontCamera.setOnClickListener(onClickListener);
+        image_button_settings.setOnClickListener(onClickListener);
     }
 
     private void openVideoConfirmationDialog(){
 
         VideoSaveConfirmationDialogFragment videoSaveConfirmationDialogFragment = new VideoSaveConfirmationDialogFragment();
+        videoSaveConfirmationDialogFragment.getFilePath(mVideoFilePath);
         videoSaveConfirmationDialogFragment.show(getSupportFragmentManager(), "VideoSaveConfirmationDialogFragment");
+
+        mVideoFilePath = null;
     }
 
     /**
@@ -322,6 +362,7 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void startPreview(){
+        Config.LogInfo(TAG + "startPreview");
         if (null == mCameraDevice || !imageViewVideo.isAvailable() || null == mPreviewSize){
             return;
         }
@@ -344,6 +385,7 @@ public class VideoActivity extends AppCompatActivity {
 
                 @Override
                 public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
+                    Config.LogInfo(TAG + "startPreview - onConfigureFailed");
                     Toast.makeText(VideoActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }, mBackgroundHandler);
@@ -434,6 +476,7 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void updatePreview(){
+        Config.LogInfo(TAG + "updatePreview");
         if (null == mCameraDevice){
             return;
         }
@@ -563,6 +606,7 @@ public class VideoActivity extends AppCompatActivity {
 
                 @Override
                 public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
+                    Config.LogInfo(TAG + "startRecordingVideo - onConfigureFailed");
                     Toast.makeText(VideoActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }, mBackgroundHandler);
@@ -598,10 +642,12 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private String getVideoFilePath(Context context) {
-        final File dir = context.getExternalFilesDir(null);
+        //final File dir = context.getExternalFilesDir(null);
+        final File dir = context.getCacheDir();
         String filePath = (dir == null ? "" : (dir.getAbsolutePath() + "/"))
                 + System.currentTimeMillis() + ".mp4";
-        Toast.makeText(this, filePath, Toast.LENGTH_LONG).show();
+        mVideoFilePath = filePath;
+        Config.LogInfo(TAG + "getVideoFilePath - filePath: " + filePath);
         return filePath;
     }
 
@@ -635,16 +681,42 @@ public class VideoActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
         mNextVideoAbsolutePath = null;
         startPreview();
+        openVideoConfirmationDialog();
+    }
+
+    private void openVideoGallery(){
+        Config.LogInfo(TAG + "openVideoGallery");
+
+        Intent intentVideoGallery = new Intent();
+        intentVideoGallery.setType("video/*");
+        intentVideoGallery.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intentVideoGallery, "Select Video"), REQUEST_TAKE_VIDEO_GALLERY);
+    }
+
+    private String getPath(Uri uri){
+        String[] projection = {MediaStore.Video.Media.DATA};
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null){
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        }else
+            return null;
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Config.LogInfo(TAG + "onClick");
             switch (view.getId()){
                 case R.id.imageViewCaptureVideo:
                     if (mIsRecordingVideo) {
-                        stopRecordingVideo();
-                        openVideoConfirmationDialog();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                stopRecordingVideo();
+                            }
+                        }, 1000);
                         imageViewVideoCapture.setImageResource(R.drawable.capture_shade);
                     } else {
                         startRecordingVideo();
@@ -666,6 +738,10 @@ public class VideoActivity extends AppCompatActivity {
                     } else {
                         imageViewVideo.setSurfaceTextureListener(mSurfaceTextureListener);
                     }
+                    break;
+
+                case R.id.image_button_settings:
+                    openVideoGallery();
                     break;
             }
         }
@@ -717,6 +793,8 @@ public class VideoActivity extends AppCompatActivity {
             mCameraOpenCloseLock.release();
             cameraDevice.close();
             mCameraDevice = null;
+            /*closeCamera();
+            stopBackgroundThread();*/
             finish();
         }
     };

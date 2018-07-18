@@ -98,6 +98,14 @@ public class SettingsActivity extends AppCompatActivity {
         settingItemModalList.add(settingItemModal);
 
         settingsChildItemModalList = new ArrayList<SettingsChildItemModal>();
+        settingsChildItemModal = new SettingsChildItemModal(getString(R.string.charity_1));
+        settingsChildItemModalList.add(settingsChildItemModal);
+        settingsChildItemModal = new SettingsChildItemModal(getString(R.string.charity_2));
+        settingsChildItemModalList.add(settingsChildItemModal);
+        settingsChildItemModal = new SettingsChildItemModal(getString(R.string.charity_3));
+        settingsChildItemModalList.add(settingsChildItemModal);
+        settingsChildItemModal = new SettingsChildItemModal(getString(R.string.charity_4));
+        settingsChildItemModalList.add(settingsChildItemModal);
         settingItemModal = new SettingItemModal(getString(R.string.my_charity_preferences), R.drawable.ic_my_chairty_preferences, settingsChildItemModalList);
         settingItemModalList.add(settingItemModal);
 
@@ -113,9 +121,9 @@ public class SettingsActivity extends AppCompatActivity {
         settingItemModal = new SettingItemModal(getString(R.string.balance), R.drawable.ic_number_request_allowed, settingsChildItemModalList);
         settingItemModalList.add(settingItemModal);
 
-        settingsChildItemModalList = new ArrayList<SettingsChildItemModal>();
+        /*settingsChildItemModalList = new ArrayList<SettingsChildItemModal>();
         settingItemModal = new SettingItemModal(getString(R.string.more_options), R.drawable.ic_more_options, settingsChildItemModalList);
-        settingItemModalList.add(settingItemModal);
+        settingItemModalList.add(settingItemModal);*/
 
         Config.LogInfo(TAG + "getSettingItems - Group Size: " + settingItemModalList.size());
 
