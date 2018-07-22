@@ -620,10 +620,11 @@ public class VideoActivity extends AppCompatActivity {
         mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
         mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         if (mNextVideoAbsolutePath == null || mNextVideoAbsolutePath.isEmpty()) {
             mNextVideoAbsolutePath = getVideoFilePath(this);
         }
-        mMediaRecorder.setOutputFile(mNextVideoAbsolutePath);
+        mMediaRecorder.setOutputFile(new File(getCacheDir(), "MediaUtil#micAvailTestFile").getAbsolutePath() + "/" + System.currentTimeMillis() + ".aac");
         mMediaRecorder.setVideoEncodingBitRate(10000000);
         mMediaRecorder.setVideoFrameRate(30);
         mMediaRecorder.setVideoSize(mVideoSize.getWidth(), mVideoSize.getHeight());
@@ -643,7 +644,8 @@ public class VideoActivity extends AppCompatActivity {
 
     private String getVideoFilePath(Context context) {
         //final File dir = context.getExternalFilesDir(null);
-        final File dir = context.getCacheDir();
+        //final File dir = context.getCacheDir();
+        final File dir = Environment.getExternalStorageDirectory();
         String filePath = (dir == null ? "" : (dir.getAbsolutePath() + "/"))
                 + System.currentTimeMillis() + ".mp4";
         mVideoFilePath = filePath;

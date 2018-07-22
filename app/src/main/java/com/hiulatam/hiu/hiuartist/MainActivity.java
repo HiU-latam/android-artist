@@ -1,6 +1,7 @@
 package com.hiulatam.hiu.hiuartist;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
@@ -43,6 +44,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity - ";
+
+    static final int REQUEST_VIDEO_CAPTURE = 1;
 
     private profileUser pefil;
 
@@ -351,10 +354,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getVideoActivity(CharityItemModal charityItemModal){
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
+        if (intent.resolveActivity(getPackageManager()) != null)
+            startActivityForResult(intent, REQUEST_VIDEO_CAPTURE);
+        /*
         Intent intent = new Intent();
-        intent.setClass(this, VideoActivity.class);
+        intent.setClass(this, VideoCapture.class);
         intent.putExtra(Config.KEY_CHARITY_ITEM_MODAL, charityItemModal);
         startActivity(intent);
+        Intent intent = new Intent();
+        intent.setClass(this, Video.class);
+        intent.putExtra(Config.KEY_CHARITY_ITEM_MODAL, charityItemModal);
+        startActivity(intent);
+        */
     }
 
     /**
